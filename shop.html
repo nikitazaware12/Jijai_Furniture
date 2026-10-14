@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shop All Furniture – Jijai Furniture</title>
+<meta name="description" content="Browse beds, sofas, tables, dining sets and kitchens by Jijai Furniture. Every piece is made to order.">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="images/favicon.svg">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="shop">
+<div id="site-header"></div>
+<main>
+<section class="page-hero">
+  <div class="container">
+    <div>
+      <div class="crumbs"><a href="index.html">Home</a> / <span>Shop</span></div>
+      <h1>Shop the full collection</h1>
+      <p>Filter by room or search by name. Tap any piece for a quick view — and remember, every design can be resized or re-finished.</p>
+      <a class="btn btn-primary" href="quote.html">Request a custom piece</a>
+    </div>
+    <div class="ph-img"><img src="images/living-luxe-lounge.jpg" alt="Luxury curved lounge"></div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="filters">
+      <button class="chip on" data-f="all">All</button>
+      <button class="chip" data-f="bedroom">Bedroom</button>
+      <button class="chip" data-f="living">Living Room</button>
+      <button class="chip" data-f="tables">Tables &amp; Dining</button>
+      <button class="chip" data-f="kitchen">Kitchens</button>
+      <div class="search"><input id="q" type="search" placeholder="Search sofa, teak, velvet…" aria-label="Search products"></div>
+    </div>
+    <p style="margin-bottom:18px;font-size:.9rem">Showing <b id="count" style="color:var(--forest)">0</b> designs</p>
+    <div class="pgrid" id="shop-grid"></div>
+    <div class="empty"><h3>No matches found</h3><p>Try a different word, or <a class="link-arrow" href="quote.html">tell us what you’re looking for →</a></p></div>
+  </div>
+</section>
+
+<div class="container cta-wrap">
+  <div class="cta reveal">
+    <div><h2>Can’t see exactly what you want?</h2><p>Send us a reference photo and we’ll build it in your size and finish.</p></div>
+    <div class="acts"><a class="btn btn-light" href="quote.html">Get a custom quote</a></div>
+  </div>
+</div>
+</main>
+<div id="site-footer"></div>
+<script src="js/data.js"></script>
+<script src="js/layout.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
