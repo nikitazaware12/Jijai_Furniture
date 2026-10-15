@@ -139,6 +139,7 @@
         `Hello Jijai Furniture, I'd like a quote.`,
         `Need: ${ans.need}`, `Style: ${ans.style}`, `Budget: ${ans.budget}`, `Timeline: ${ans.time}`,
         `Name: ${f.get('name')}`, `Phone: ${f.get('phone')}`, `City: ${f.get('city') || '-'}`,
+        f.get('date') ? `Preferred date: ${fmtDate(f.get('date'))}` : '',
         f.get('message') ? `Notes: ${f.get('message')}` : ''
       ].filter(Boolean);
       const text = lines.join('\n');
@@ -150,12 +151,16 @@
     });
   }
 
+  /* ---------- date pickers: no past dates + readable format ---------- */
+  const fmtDate = (v) => v && /^\d{4}-\d{2}-\d{2}$/.test(v) ? new Date(v + 'T00:00:00').toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }) : '';
+  document.querySelectorAll('input[data-min-today]').forEach((i) => { const t = new Date(); t.setMinutes(t.getMinutes() - t.getTimezoneOffset()); i.min = t.toISOString().slice(0, 10); });
+
   /* ---------- contact form ---------- */
   const cf = $('#contact-form');
   if (cf) cf.addEventListener('submit', (e) => {
     e.preventDefault();
     const f = new FormData(cf);
-    const text = `Hello Jijai Furniture,\nName: ${f.get('name')}\nPhone: ${f.get('phone')}\nInterested in: ${f.get('topic')}\n${f.get('message')}`;
+    const text = `Hello Jijai Furniture,\nName: ${f.get('name')}\nPhone: ${f.get('phone')}\nInterested in: ${f.get('topic')}${f.get('date') ? `\nPreferred date: ${fmtDate(f.get('date'))}` : ''}\n${f.get('message')}`;
     window.toast('Opening WhatsApp with your message…');
     window.open(window.waLink(text), '_blank');
     cf.reset();
